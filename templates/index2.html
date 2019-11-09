@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Untitled</title>
+		<title>Help Queue</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
@@ -30,7 +30,7 @@
                                 {%else%}
                                 <li>There is {{amount}} request in this queue.</li>
                                 {%endif%}
-                                <li>While waiting for help, take a minute to aprecciate this amazing ux!</li>
+                                <li>take a minute to aprecciate this amazing ux!.<br>{%if now != 0%} your waiting time: {{now}}{%else%}you are currently not waiting :){%endif%}.</li>
                             </ul>
                             <img style="width: 35%;" src="{{ url_for('static', filename='images/meetlogo.png') }}">
 
@@ -45,7 +45,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>your name</th>
+                                            <th>request ID</th>
                                             <th>Description</th>
                                             <th>Place</th>
                                         </tr>
@@ -53,7 +53,7 @@
                                     <tbody>
                                         {%for r in reqs%}
                                         <tr>
-                                            <td>{{r.student}}</td>
+                                            <td>{{r.id}}</td>
                                             <td>{{r.question}}</td>
                                             <td>{{r.place}}</td>
                                         </tr>
@@ -90,7 +90,10 @@
 
                                             </ul>
                                         </form>
-                                        <a href = "{{url_for('view')}}">TA VIEW</a>
+                                        {%if staff == True%}
+                                        <a href = "{{url_for('view')}}">TA VIEW</a> | 
+                                        {%endif%}
+                                        <a href = "{{url_for('logout')}}">logout</a>
                                         </div>
                                         <div class="span-1-5">
                                             <ul class="contact-icons color1">
@@ -114,7 +117,27 @@
                                 <img style="width: 30%; " src="{{ url_for('static', filename='images/meetlogo.png') }}">
                             </div>
                         </center>
-		<!-- Scripts -->
+        <!-- Scripts -->
+        <script>
+            var time = new Date().getTime();
+            
+            document.onkeypress = function (e) {
+                time = new Date().getTime();
+            };
+            document.onmouseover = function (e) {
+                time = new Date().getTime();
+            };
+       
+            function refresh() {
+                if(new Date().getTime() - time >= 10000) 
+                    window.location = window.location.href;
+                else 
+                    setTimeout(refresh, 300);
+            }
+       
+            setTimeout(refresh, 300);
+       
+           </script>
 			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
