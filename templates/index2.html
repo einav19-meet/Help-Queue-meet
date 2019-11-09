@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Untitled</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Wrapper -->
+                <div id="wrapper">
+
+                    <!-- Panel (Banner) -->
+                    <section class="panel banner right">
+                        <div class="content color0 span-3-75">
+                            <h1 class="major">y2 2020 Help Queue</h1>
+                            <p>Powered by Einav Raviv and Noam Globerman</p>
+
+                            <ul class="actions">
+                                <li><a href="#queue" class="button primary color2 icon solid far fa-question-circle">join Queue</a></li>
+                            </ul>
+                            <ul class="alt">
+                                {%if amount > 1%}
+                                <li>There are {{amount}} requests in this queue.</li>
+                                {%else%}
+                                <li>There is {{amount}} request in this queue.</li>
+                                {%endif%}
+                                <li>While waiting for help, take a minute to aprecciate this amazing ux!</li>
+                            </ul>
+                            <img style="width: 35%;" src="{{ url_for('static', filename='images/meetlogo.png') }}">
+
+                        </div>
+
+                    </section>
+                    <!-- Panel -->
+                    <section class="panel color2-alt" id="my">
+                        <div class="intro color2">
+                            <h3 class="major">My open help requests</h3>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>your name</th>
+                                            <th>Description</th>
+                                            <th>Place</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%for r in reqs%}
+                                        <tr>
+                                            <td>{{r.student}}</td>
+                                            <td>{{r.question}}</td>
+                                            <td>{{r.place}}</td>
+                                        </tr>
+                                        
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </section>
+
+                        <!-- Panel -->
+                        <section class="panel color4-alt" id="queue">
+                          
+                            <div class="inner columns divided">
+                                    <div class="span-3-25">
+                                        <h2 class="major">Join Queue</h2>
+
+                                        <form method="post" action="/home">
+                                            <div class="fields">
+                                                <div class="field third">
+                                                    <label for="demo-name">Name</label>
+                                                    <input type="text" name="demo-name" id="demo-name" value="{{username}}" placeholder="Automatic fill" disabled/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label for="demo-message">How Can We Help You?</label>
+                                                    <textarea style="width:100%;" name="question" id="demo-message" placeholder="make sure your laptop is open." rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Submit Request" class="button primary" /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+
+                                            </ul>
+                                        </form>
+                                        <a href = "{{url_for('view')}}">TA VIEW</a>
+                                        </div>
+                                        <div class="span-1-5">
+                                            <ul class="contact-icons color1">
+
+                                                <div class="copyright">&copy; Thanks to Einav and Noam our awsome TAs for creating this breathtaking Help Queue</div>
+                                            </ul>
+
+                                        </div>
+                                     </div>                        
+
+                        </section>
+
+
+
+                        <!-- Copyright -->
+                        <center>
+                            <div>
+                                <br>
+                                <br />
+
+                                <img style="width: 30%; " src="{{ url_for('static', filename='images/meetlogo.png') }}">
+                            </div>
+                        </center>
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
