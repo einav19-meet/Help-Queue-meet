@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\static",
+    "\\static\\Login_v4",
+    "\\static\\Login_v4\\css",
+    "\\templates"
   ],
-  "SelectedNode": "\\magenta",
+  "SelectedNode": "\\static",
   "PreviewInSolutionExplorer": false
 }
