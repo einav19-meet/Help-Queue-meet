@@ -51,7 +51,6 @@ def home():
 
         amount = len(get_reqs())
 
-        return render_template('index2.html',username = username, reqs = get_student_reqs(username), amount = amount, staff = staff)
         return render_template('index2.html',username = username, now = now, reqs = get_student_reqs(username), amount = amount, staff = staff)
     else:
         return redirect(url_for('login'))

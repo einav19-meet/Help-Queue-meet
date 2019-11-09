@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Untitled</title>
 		<title>Help Queue</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -31,7 +30,6 @@
                                 {%else%}
                                 <li>There is {{amount}} request in this queue.</li>
                                 {%endif%}
-                                <li>While waiting for help, take a minute to aprecciate this amazing ux!</li>
                                 <li>take a minute to aprecciate this amazing ux!.<br>{%if now != 0%} your waiting time: {{now}}{%else%}you are currently not waiting :){%endif%}.</li>
                             </ul>
                             <img style="width: 35%;" src="{{ url_for('static', filename='images/meetlogo.png') }}">
@@ -47,7 +45,6 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>your name</th>
                                             <th>request ID</th>
                                             <th>Description</th>
                                             <th>Place</th>
