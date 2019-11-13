@@ -29,6 +29,7 @@ def home():
         staff = False
         if get_user(username).role != 'student':
             staff = True
+            return redirect(url_for('view'))
         if start_time != 0:
             now = str(datetime.datetime.now() - start_time)[:-7]
         else:

@@ -25,7 +25,7 @@
                                 <li><a href="#queue" class="button primary color2 icon solid far fa-question-circle">join Queue</a></li>
                             </ul>
                             <ul class="alt">
-                                {%if amount > 1%}
+                                {%if amount > 1 or amount == 0%}
                                 <li>There are {{amount}} requests in this queue.</li>
                                 {%else%}
                                 <li>There is {{amount}} request in this queue.</li>
@@ -90,9 +90,7 @@
 
                                             </ul>
                                         </form>
-                                        {%if staff == True%}
-                                        <a href = "{{url_for('view')}}">TA VIEW</a> | 
-                                        {%endif%}
+                                        
                                         <a href = "{{url_for('logout')}}">logout</a>
                                         </div>
                                         <div class="span-1-5">

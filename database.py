@@ -74,4 +74,9 @@ def check_password(username, password):
 
     return False
 
-# add_user("noam2", "1", "staff")
+# listi = ['mayag', 'or', 'mai', 'yoav', 'itay', 'mohammady', 'georgem', 'wassim', 'joyce', 'sumayah', 'fanar', 'noam', 'shir', 'zohar', 'ido', 'itamar', 'judeh', 'wael', 'mona', 'mayaj', 'natal', 'shaked', 'nevi', 'amit', 'noorm', 'maayan', 'aboud', 'georgea', 'noora', 'sadeen', 'rahaf', 'avishag', 'danielle', 'uri', 'aviv', 'toby', 'kareem', 'wajeeh', 'mohammadh', 'dalia']
+# for i in listi:
+#     add_user(i, "meetyear20", "student")
+# listi = ['sadekmaster', 'talmaster', 'noamta','rahafta', 'einavta']
+# for i in listi:
+#     add_user(i, 'amazingstaff', 'staff')
